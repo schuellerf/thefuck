@@ -32,9 +32,9 @@ class Tcsh(Generic):
     def _get_history_line(self, command_script):
         return u'#+{}\n{}\n'.format(int(time()), command_script)
 
-    def how_to_configure(self):
+    def how_to_configure(self, alias=""):
         return self._create_shell_configuration(
-            content=u'eval `thefuck --alias`',
+            content=u'eval `thefuck --alias {}`'.format(alias),
             path='~/.tcshrc',
             reload='tcsh')
 

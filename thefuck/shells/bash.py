@@ -72,7 +72,7 @@ class Bash(Generic):
     def _get_history_line(self, command_script):
         return u'{}\n'.format(command_script)
 
-    def how_to_configure(self):
+    def how_to_configure(self, alias=""):
         if os.path.join(os.path.expanduser('~'), '.bashrc'):
             config = '~/.bashrc'
         elif os.path.join(os.path.expanduser('~'), '.bash_profile'):
@@ -81,7 +81,7 @@ class Bash(Generic):
             config = 'bash config'
 
         return self._create_shell_configuration(
-            content=u'eval "$(thefuck --alias)"',
+            content=u'eval "$(thefuck --alias {})"'.format(alias),
             path=config,
             reload=u'source {}'.format(config))
 

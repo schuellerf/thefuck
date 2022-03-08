@@ -83,9 +83,9 @@ class Zsh(Generic):
         else:
             return ''
 
-    def how_to_configure(self):
+    def how_to_configure(self, alias=""):
         return self._create_shell_configuration(
-            content=u'eval $(thefuck --alias)',
+            content=u'eval $(thefuck --alias {})'.format(alias),
             path='~/.zshrc',
             reload='source ~/.zshrc')
 

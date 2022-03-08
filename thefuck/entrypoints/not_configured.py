@@ -98,7 +98,7 @@ def main():
     """
     cmd = os.path.basename(sys.argv[0])
     settings.init()
-    configuration_details = shell.how_to_configure()
+    configuration_details = shell.how_to_configure(alias=cmd)
     if (
         configuration_details and
         configuration_details.can_configure_automatically
